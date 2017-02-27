@@ -1,0 +1,1443 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommandManager</name>
+    </assembly>
+    <members>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle">
+            <summary>
+            A WinForms component that determines whether an application has received any defined ActivityMessages for a specified TimeSpan.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Idle">
+            <summary>
+            Raised when the IdleTime is reached.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Started">
+            <summary>
+            Raised when the component is started.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Paused">
+            <summary>
+            Raised when the component is paused.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.UnPaused">
+            <summary>
+            Raised when the component is unpaused.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Stopped">
+            <summary>
+            Raised when the component is stopped.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Tick">
+            <summary>
+            Raised when the component 'ticks'.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Warn">
+            <summary>
+            May be raised when the WarnTime is reached and on each subsequent Tick depending on the WarnSetting.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Activity">
+            <summary>
+            Raised when the component detects an activity that is defined in ActivityMessages.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.IdleTimeChanged">
+            <summary>
+            Raised when the IdleTime has been changed.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.TickIntervalChanged">
+            <summary>
+            Raised when the TickInterval has been changed.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.WarnTimeChanged">
+            <summary>
+            Raised when the WarnTime has been changed.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.WarnSettingChanged">
+            <summary>
+            Raised when the WarnSetting has been changed.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.IdleAsync">
+            <summary>
+            Raised asynchronously on a seperate thread when the IdleTime is reached.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.StartedAsync">
+            <summary>
+            Raised asynchronously on a seperate thread when the component is started.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.PausedAsync">
+            <summary>
+            Raised asynchronously on a seperate thread when the component is paused.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.UnPausedAsync">
+            <summary>
+            Raised asynchronously on a seperate thread when the component is unpaused.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.StoppedAsync">
+            <summary>
+            Raised asynchronously on a seperate thread when the component is stopped.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.TickAsync">
+            <summary>
+            Raised asynchronously on a seperate thread when the component 'ticks'.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.WarnAsync">
+            <summary>
+            May be raised asynchronously on a seperate thread when the WarnTime is reached and on each subsequent Tick depending on the WarnSetting.
+            </summary>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.ActivityAsync">
+            <summary>
+            Raised asynchronously on a seperate thread when the component detects an activity that is defined in ActivityMessages.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.ZeroTime">
+            <summary>
+            A System.TimeSpan with all values zero.
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.#ctor">
+            <summary>
+            Initializes a new instance of the ApplicationIdle component.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.IdleAction">
+            <summary>
+            Gets or set the Action to be taken when Idle is met.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.IdleTime">
+            <summary>
+            Gets or sets the TimeSpan after which the application should be considered idle if no defined ActivityMessages are received.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.TickInterval">
+            <summary>
+            Gets or sets the TimeSpan at which the component 'ticks'.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.WarnTime">
+            <summary>
+            Gets or sets the TimeSpan at which warning events will be generated depending on the WarnSettings.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.WarnSetting">
+            <summary>
+            Gets or sets the WarnSettings value used to control warning events generation.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.TimeRemaining">
+            <summary>
+            Gets the TimeSpan representing the time until Idle assuming no activity is detected.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.TimeElapsed">
+            <summary>
+            Gets the TimeSpan representing the time since the last activity was detected.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.IsRunning">
+            <summary>
+            Gets whether the component is currently running.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.IsPaused">
+            <summary>
+            Gets whether the component is currently paused.
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Start">
+            <summary>
+            Starts the component.
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.TogglePause">
+            <summary>
+            Toggles the pause state of the component.
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Stop">
+            <summary>
+            Stops the component.
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Restart">
+            <summary>
+            Stops, and then starts the component.
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.GetVersion">
+            <summary>
+            Gets the System.Version of this component.
+            </summary>
+            <returns>The System.Version of this component</returns>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnIdle(System.EventArgs)">
+            <summary>
+            Raises the Idle event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnStarted(System.EventArgs)">
+            <summary>
+            Raises the Started event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnPaused(System.EventArgs)">
+            <summary>
+            Raises the Paused event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnUnPaused(System.EventArgs)">
+            <summary>
+            Raises the UnPaused event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnStopped(System.EventArgs)">
+            <summary>
+            Raises the Stopped event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnTick(BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.TickEventArgs)">
+            <summary>
+            Raises the Tick event.
+            </summary>
+            <param name="e">A TickEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnWarn(System.EventArgs)">
+            <summary>
+            Raises the WarnEvent.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnActivity(BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityEventArgs)">
+            <summary>
+            Raises the Activity event.
+            </summary>
+            <param name="e">An ActivityEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnIdleTimeChanged(System.EventArgs)">
+            <summary>
+            Raises the IdleTimeChanged event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnTickIntervalChanged(System.EventArgs)">
+            <summary>
+            Raises the TickIntervalChanged event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnWarnTimeChanged(System.EventArgs)">
+            <summary>
+            Raises the WarnTimeChanged event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnWarnSettingChanged(System.EventArgs)">
+            <summary>
+            Raises the WarnSettingChanged event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnIdleAsync(System.EventArgs)">
+            <summary>
+            Raises the IdleAsync event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnStartedAsync(System.EventArgs)">
+            <summary>
+            Raises the StartedAsync event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnPausedAsync(System.EventArgs)">
+            <summary>
+            Raises the PausedAsync event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnUnPausedAsync(System.EventArgs)">
+            <summary>
+            Raises the UnPausedAsync event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnStoppedAsync(System.EventArgs)">
+            <summary>
+            Raises the StoppedAsync event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnTickAsync(BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.TickEventArgs)">
+            <summary>
+            Raises the TickAsync event.
+            </summary>
+            <param name="e">A TickEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnWarnAsync(System.EventArgs)">
+            <summary>
+            Raises the WarnAsync event.
+            </summary>
+            <param name="e">A System.EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnActivityAsync(BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityEventArgs)">
+            <summary>
+            Raises the ActivityAsync event.
+            </summary>
+            <param name="e">An ActivityEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnAsyncCompleted(System.IAsyncResult)">
+            <summary>
+            Raised when an asynchronous event callsback.
+            </summary>
+            <param name="asyncResult">An IAsyncResult that represents the status of the asynchronous operation.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnTickAsyncCompleted(System.IAsyncResult)">
+            <summary>
+            Raised when the TickAsync event callsback.
+            </summary>
+            <param name="asyncResult">An IAsyncResult that represents the status of the asynchronous operation.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.OnActivityAsyncCompleted(System.IAsyncResult)">
+            <summary>
+            Raised when the ActivityAsync event callsback.
+            </summary>
+            <param name="asyncResult">An IAsyncResult that represents the status of the asynchronous operation.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdle.Dispose(System.Boolean)">
+            <summary>
+            Releases all resources used by the component.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages">
+            <summary>
+            Windows messages that will cause the component to consider the application not idle.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_NCMOUSEMOVE">
+            <summary>
+            Cursor moved while within the nonclient area.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_NCLBUTTONDOWN">
+            <summary>
+            Mouse left button pressed while the cursor was within the nonclient area.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_NCLBUTTONUP">
+            <summary>
+            Mouse left button released while the cursor was within the nonclient area.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_NCLBUTTONDBLCLK">
+            <summary>
+            Mouse left button double-clicked while the cursor was within the nonclient area.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_NCRBUTTONDOWN">
+            <summary>
+            Mouse right button pressed while the cursor was within the nonclient area.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_NCRBUTTONUP">
+            <summary>
+            Mouse right button released while the cursor was within the nonclient area.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_NCRBUTTONDBLCLK">
+            <summary>
+            Mouse right button double-clicked while the cursor was within the nonclient area.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_NCMBUTTONDOWN">
+            <summary>
+            Mouse middle button pressed while the cursor was within the nonclient area.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_NCMBUTTONUP">
+            <summary>
+            Mouse middle button released while the cursor was within the nonclient area.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_NCMBUTTONDBLCLK">
+            <summary>
+            Mouse middle button double-clicked while the cursor was within the nonclient area.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_KEYDOWN">
+            <summary>
+            Key pressed.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_KEYUP">
+            <summary>
+            Key released.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_SYSKEYDOWN">
+            <summary>
+            F10 key, or held down the ALT key and then another key pressed.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_SYSKEYUP">
+            <summary>
+            Key released that was pressed while the ALT key was held down.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_MOUSEMOVE">
+            <summary>
+            Cursor moved.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_LBUTTONDOWN">
+            <summary>
+            Mouse left button pressed.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_LBUTTONUP">
+            <summary>
+            Mouse left button released.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_LBUTTONDBLCLK">
+            <summary>
+            Mouse left button double-clicked.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_RBUTTONDOWN">
+            <summary>
+            Mouse right button pressed.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_RBUTTONUP">
+            <summary>
+            Mouse right button released.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_RBUTTONDBLCLK">
+            <summary>
+            Mouse right button double-clicked.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_MBUTTONDOWN">
+            <summary>
+            Mouse middle button pressed.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_MBUTTONUP">
+            <summary>
+            Mouse middle button releaseed.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_MBUTTONDBLCLK">
+            <summary>
+            Mouse middle button double-clicked.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages.WM_MOUSEWHEEL">
+            <summary>
+            Mouse wheel rotated.
+            </summary>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityEventArgs">
+            <summary>
+            Class that contains the one of the ActivityMessages that the component used to consider the application not idle.
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityEventArgs.#ctor(BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityMessages)">
+            <summary>
+            Initializes a new instance of the ActivityEventArgs class.
+            </summary>
+            <param name="message">One of the ActivityMessages.</param>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.ActivityEventArgs.Message">
+            <summary>
+            Gets the one of the ActivityMessages that the component used to consider the application not idle. 
+            </summary>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.Behavior">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.Behavior.None">
+            <summary>
+            No Action Taken
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.Behavior.Stop">
+            <summary>
+            Stops the Timer
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.Behavior.ReStart">
+            <summary>
+            Re-start the Timer
+            </summary>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs">
+            <summary>
+            Command Event Arguments
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+            <remarks>
+            <see cref="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.Checked"/> is set to false.
+            <see cref="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.Visible"/> is set to true.
+            <see cref="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.Checked"/> is set to true.
+            </remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.#ctor(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Enabled">Sets the state of <see cref="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.Enabled"/></param>
+            <param name="Visible">Sets the state of <see cref="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.Visible"/></param>
+            <param name="Checked">Sets the state of <see cref="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.Checked"/></param>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.Enabled">
+            <summary>
+            Gets/Sets if the Command is Enabled
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.Visible">
+            <summary>
+            Gets/Sets if the Command is Visible
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandEventArgs.Checked">
+            <summary>
+            Gets/Sets if Command is Checked
+            </summary>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CancelCommandEventArgs">
+            <summary>
+            Cancel Command Event Arguments
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CancelCommandEventArgs.Cancel">
+            <summary>
+            Gets/Sets if the Command is to be canceled
+            </summary>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandItemEventArgs`1">
+            <summary>
+            Command Item Event Arguments
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandItemEventArgs`1.Cmd">
+            <summary>
+            The Command associated with the <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandItemEventArgs`1"/>
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandItemEventArgs`1.Item">
+            <summary>
+            The Item associated with the <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandItemEventArgs`1"/>
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.CommandItemEventArgs`1.#ctor(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="item">Control Item</param>
+            <param name="Cmd">Command associated with <paramref name="item"/></param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.TickEventArgs">
+            <summary>
+            Class that contains a bool that indicates whether the TimeRemaining is less than or equal to WarnTime.
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.TickEventArgs.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the TickEventArgs class.
+            </summary>
+            <param name="isWarnPeriod">Indicates whether the TimeRemaining is less than or equal to WarnTime.</param>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.TickEventArgs.IsWarnPeriod">
+            <summary>
+            Gets whether the TimeRemaining is less than or equal to WarnTime. 
+            </summary>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.WarnSettings">
+            <summary>
+            Settings to control how Warn and WarnAsync events are raised.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.WarnSettings.Tick">
+            <summary>
+            Warn and WarnAsync events wil be raised on each Tick once the WarnTime has been reached.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.WarnSettings.Once">
+            <summary>
+            Warn and WarnAsync events wil be raised once only when the WarnTime is reached.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.ApplicationIdleData.WarnSettings.Off">
+            <summary>
+            Warn and WarnAsync events will not be raised.
+            </summary>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Command">
+            <summary>
+            Represents a command that manages the state of a control
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.#ctor(System.String,BigByteTechnologies.Library.Windows.CommandManagement.Command.ExecuteHandler,BigByteTechnologies.Library.Windows.CommandManagement.Command.UpdateHandler)">
+            <summary>
+            Constructor to create a new instance of a <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/>.
+            </summary>
+            <param name="strTag">The key word tag associated with this instance of <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/></param>
+            <param name="handlerExecute">
+            The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command.ExecuteHandler"/> that executes when the
+            <paramref name="handlerUpdate"/> conditions are met.
+            </param>
+            <param name="handlerUpdate">
+            The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command.UpdateHandler"/> that executes on idle to check and see if conditions are met to run
+            <paramref name="handlerExecute"/>
+            </param>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.Command.CommandInstances">
+            <summary>
+            Gets the Command instances for the current command
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.Command.Tag">
+            <summary>
+            Gets the Tag of the Command. Tag property: Unique internal name for each command
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.ToString">
+            <summary>
+            Overrides Base ToString method and return <see cref="P:BigByteTechnologies.Library.Windows.CommandManagement.Command.Tag"/>
+            </summary>
+            <returns><see cref="P:BigByteTechnologies.Library.Windows.CommandManagement.Command.Tag"/> Property Value</returns>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.Execute">
+            <summary>
+            Method to trigger Events for the Command instance
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.Command.Enabled">
+            <summary>
+            Gets/Sets if the <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> is Enabled
+            </summary>
+            <remarks>
+            Setting the Enabled property requires extra processing. Therefore it is not recommended to use the Enabled
+            property for multiple setting within a single method.
+            </remarks>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.Command.Checked">
+            <summary>
+            Gets/Sets if the <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> is Checked
+            </summary>
+            <remarks>
+            Setting the Checked property requires extra processing. Therefore it is not recommended to use the Checked
+            property for multiple setting within a single method.
+            </remarks>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.Command.Visible">
+            <summary>
+            Gets/Sets if the <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> is visible
+            </summary>
+            <remarks>
+            Setting the Visible property requires extra processing. Therefore it is not recommended to use the visible
+            property for multiple setting within a single method.
+            </remarks>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Command.UpdateHandler">
+            <summary>
+            Update handler for <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> instances
+            </summary>
+            <param name="cmd">Instance of <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/></param>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.Command.OnUpdate">
+            <summary>
+            Event that is raised when a <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> is updated
+            </summary>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Command.ExecuteHandler">
+            <summary>
+            Execute handler for <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> instances
+            </summary>
+            <param name="cmd">Instance of <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/></param>
+        </member>
+        <member name="E:BigByteTechnologies.Library.Windows.CommandManagement.Command.OnExecute">
+            <summary>
+            Event that is raised when a <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> is executed
+            </summary>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Command.CommandInstanceList">
+            <summary>
+            Represents a list of <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> instances
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.CommandInstanceList.Add``1(``0)">
+            <summary>
+            Adds A new instance to Commands
+            </summary>
+            <typeparam name="T">The Type of the command</typeparam>
+            <param name="instance">The instance to add</param>
+            <returns>
+            returns the index of the newly added instance
+            </returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.Exception">If instance is array</exception>
+            <exception cref="T:System.Exception">If No <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1"/>exist for <paramref name="instance"/></exception>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.CommandInstanceList.RemoveAt(System.Int32)">
+            <summary>
+            Removes an instance from the Commands
+            </summary>
+            <param name="index">The Index to remove</param>
+            <returns>
+            True if the index has been remove; Otherwise false
+            </returns>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.CommandInstanceList.Remove``1(``0)">
+            <summary>
+            Removes an Instance from the list
+            </summary>
+            <typeparam name="T">The Type of command</typeparam>
+            <param name="instance">The instance to remove</param>
+            <returns>
+            True if instance was removed; Otherwise false
+            </returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.Exception">If No <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1"/>exist for <paramref name="instance"/></exception>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.CommandInstanceList.IndexOfCommand``1(``0)">
+            <summary>
+            Get the index of the Command instance
+            </summary>
+            <typeparam name="T">The Type of the command</typeparam>
+            <param name="instance">The instance to get the index for</param>
+            <returns>
+            The index of the command if it is found; Otherwise -1
+            </returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.Exception">If No <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1"/>exist for <paramref name="instance"/></exception>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.CommandInstanceList.AddRange(System.Object[])">
+            <summary>
+            Adds a range of controls to the Command list at once
+            </summary>
+            <param name="Items">Array of Commands to add to the list.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.CommandInstanceList.OnInsertComp``1(System.Object,``0)">
+            <summary>
+            Method is called when Insert of a control is complete
+            </summary>
+            <typeparam name="T">The Type of control that has been added</typeparam>
+            <param name="Sender">The Object sender</param>
+            <param name="value">The control that has been added</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.CommandInstanceList.OnRemoveComp``1(System.Object,``0)">
+            <summary>
+            Method is called when removal of a control is complete.
+            </summary>
+            <typeparam name="T">The Type of control that has been removed</typeparam>
+            <param name="Sender">The object sender</param>
+            <param name="value">The control that has been removed</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Command.CommandInstanceList.OnInsertComp(System.Object,System.Object)">
+             <summary>
+            Method is called when Insert of a control is complete
+             </summary>
+             <param name="Sender">The Object sender</param>
+             <param name="value">The control that has been added</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager">
+            <summary>
+            A WinForms component that determines whether an application is idle and updates the User Interface (UI), enabling
+            , disabling and displaying user interface controls as needed using a list of commands.
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.PreCommandProcess">
+            <summary>
+            Event Raised before commands are processed
+            </summary>
+            <remarks>If CancelEventArgs is false then processing will not take place</remarks>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.PostCommandProcess">
+            <summary>
+            Event Raise after commands are processed
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.#ctor">
+            <summary>
+            Creates a instance
+            </summary>
+            <remarks>
+            <see cref="P:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.IdleTime"/> default value is set to 500 milliseconds.
+            <see cref="P:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.TickInterval"/> default value is set to 250 milliseconds.
+            The following Command Executors are automatically registered.
+            <list type="bullet">
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.MenuCommandExecutor"/></description>
+            </item>
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolbarCommandExecutor"/></description>
+            </item>
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ButtonCommandExecutor"/></description>
+            </item>
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ListViewCommandExecutor"/></description>
+            </item>
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripMenuItemCommandExecutor"/></description>
+            </item>
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripDropDownItemCommandExecutor"/></description>
+            </item>
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripButtonCommandExecutor"/></description>
+            </item>
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.TextBoxCommandExecutor"/></description>
+            </item>
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.LabelCommandExecutor"/></description>
+            </item>
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ComboBoxCommandExeutor"/></description>
+            </item>
+            <item>
+            <description><see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.NumericUpDownCommandExecutor"/></description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.IdleAction">
+            <summary>
+            Gets or set the Action to be taken when Idle is met.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.IdleTime">
+            <summary>
+            Gets or sets the TimeSpan after which the application should be considered idle if no defined ActivityMessages are received.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.TickInterval">
+            <summary>
+            Gets or sets the TimeSpan at which the component 'ticks'.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.WarnTime">
+            <summary>
+            Gets or sets the TimeSpan at which warning events will be generated depending on the WarnSettings.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.WarnSetting">
+            <summary>
+            Gets or sets the WarnSettings value used to control warning events generation.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.Commands">
+            <summary>
+            Gets the command collection
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.RegisterCommandExecutor``1(BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor{``0})">
+            <summary>
+            Registers a Command Executor with the <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager"/>.
+            </summary>
+            <typeparam name="T">Generic control type of Command Executor</typeparam>
+            <param name="executor">The Generic Command Executor instance</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.CommandIdle(System.Object,System.EventArgs)">
+            <summary>
+            Handler for the Idle application event. Runs all the Update Commands
+            </summary>
+            <param name="sender">The Sender of the Event</param>
+            <param name="e">The Event args</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.Dispose(System.Boolean)">
+            <summary>
+            Releases all resources used by the component.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.CommandsList">
+            <summary>
+            Command List
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.CommandManager.CommandsList.Add(BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Add a <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> instance to the list
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ButtonCommandExecutor">
+            <summary>
+            Button Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ButtonCommandExecutor.OnInstanceAdded(System.Windows.Forms.Button,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks Button.Click Event
+            </summary>
+            <param name="item">A Button</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ButtonCommandExecutor.Check(System.Windows.Forms.Button,System.Boolean)">
+            <summary>
+            Sets the checked state of the Button
+            </summary>
+            <param name="item">A Button</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+            <remarks>This method does not Apply to Button so no action is take on this method.</remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ButtonCommandExecutor.Enable(System.Windows.Forms.Button,System.Boolean)">
+            <summary>
+            Sets the enabled state of the Button
+            </summary>
+            <param name="item">A Button</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ButtonCommandExecutor.Visible(System.Windows.Forms.Button,System.Boolean)">
+            <summary>
+            Sets the Visible state of the Button
+            </summary>
+            <param name="item">A Button</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CheckBoxCommandExecutor">
+            <summary>
+            Checkbox Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CheckBoxCommandExecutor.OnInstanceAdded(System.Windows.Forms.CheckBox,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks CheckBox.CheckedChanged Event
+            </summary>
+            <param name="item">A CheckBox</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CheckBoxCommandExecutor.Check(System.Windows.Forms.CheckBox,System.Boolean)">
+            <summary>
+            Sets the checked state of the CheckBox
+            </summary>
+            <param name="item">A CheckBox</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CheckBoxCommandExecutor.Enable(System.Windows.Forms.CheckBox,System.Boolean)">
+            <summary>
+            Sets the enabled state of the CheckBox
+            </summary>
+            <param name="item">A CheckBox</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CheckBoxCommandExecutor.Visible(System.Windows.Forms.CheckBox,System.Boolean)">
+            <summary>
+            Sets the Visible state of the CheckBox
+            </summary>
+            <param name="item">A CheckBox</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ComboBoxCommandExeutor">
+            <summary>
+            Combo box Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ComboBoxCommandExeutor.OnInstanceAdded(System.Windows.Forms.ComboBox,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks ComboBox.SelectionChangeCommitted Event
+            </summary>
+            <param name="item">A ComboBox</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ComboBoxCommandExeutor.Check(System.Windows.Forms.ComboBox,System.Boolean)">
+            <summary>
+            Sets the checked state of the ComboBox
+            </summary>
+            <param name="item">A ComboBox</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+            <remarks>This method does not Apply to ComboBox so no action is take on this method.</remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ComboBoxCommandExeutor.Enable(System.Windows.Forms.ComboBox,System.Boolean)">
+            <summary>
+            Sets the enabled state of the ComboBox
+            </summary>
+            <param name="item">A ComboBox</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ComboBoxCommandExeutor.Visible(System.Windows.Forms.ComboBox,System.Boolean)">
+            <summary>
+            Sets the Visible state of the ComboBox
+            </summary>
+            <param name="item">A ComboBox</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1">
+            <summary>
+            Abstract base class for Command Executor classes
+            </summary>
+            <typeparam name="T">The type of Control to create Command Executor for</typeparam>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.hashInstances">
+            <summary>
+            Dictionary of current commands in the command executor instance
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.InstanceAdded">
+            <summary>
+            Event raised when Command instance is added to Command Executor instance
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.InstanceRemoved">
+            <summary>
+            Event raised when Command instance is removed from Command Executor instance
+            </summary>
+        </member>
+        <member name="F:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.CommandExecute">
+            <summary>
+            Event raised when a Command Executer has started to execute.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.StringType">
+            <summary>
+            Gets the <typeparamref name="T"/> type as string instance.
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Protected method that is call when a new Command as been added to instance of Command Manager
+            </summary>
+            <param name="item">Instance of Control</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with <paramref name="item"/></param>
+            <remarks>
+            Can be overridden in derived classes.
+            Method is also responsible for calling <see cref="F:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.InstanceAdded"/> event on successful adding of <paramref name="item"/>.
+            </remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceRemoved(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Protected method that is call when a new Command as been removed from instance of Command Manager
+            </summary>
+            <param name="item">Instance of Control</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with <paramref name="item"/></param>
+            <remarks>
+            Can be overridden in derived classes.
+            Method is also responsible for calling <see cref="F:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.InstanceRemoved"/> event on successful removing of <paramref name="item"/>.
+            </remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.GetCommandForInstance(`0)">
+            <summary>
+            Gets a <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> for control <paramref name="item"/>
+            </summary>
+            <param name="item">The Control to get the <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> instance for</param>
+            <returns>Instance of <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/></returns>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.Enable(`0,System.Boolean)">
+            <summary>
+            Set if <paramref name="item"/> is to be enable or disabled in derived class
+            </summary>
+            <param name="item">The control item to enabled or disabled</param>
+            <param name="bEnable">The boolean value that is true for enabled and false for disabled</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.Check(`0,System.Boolean)">
+            <summary>
+            Set if <paramref name="item"/> is to be checked or unchecked in derived class if supported by control
+            </summary>
+            <param name="item">The control item to check or unchecked</param>
+            <param name="bCheck">The boolean value that is true for check and false of unchecked</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.Visible(`0,System.Boolean)">
+            <summary>
+            Set if <paramref name="item"/> is to be visible or invisible in derived class
+            </summary>
+            <param name="item">The control item to set visible or invisible</param>
+            <param name="bVisible">The boolean value that is true for visible and false for invisible</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ICommandExecutor`1">
+            <summary>
+            Command Exectuor interface
+            </summary>
+            <typeparam name="T">The Control type to create the Executor for</typeparam>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ICommandExecutor`1.StringType">
+            <summary>
+            Gets string Representing the Type of <typeparamref name="T"/>
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ICommandExecutor`1.Enable(`0,System.Boolean)">
+            <summary>
+            Sets the Enabled state of control <typeparamref name="T"/>
+            </summary>
+            <param name="item">Instance of a Control</param>
+            <param name="bEnable">Sets the state of <paramref name="item"/> to enabled or disabled</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ICommandExecutor`1.Check(`0,System.Boolean)">
+            <summary>
+            Sets the Checked stated of a control if the control of <typeparamref name="T"/> supports being checked
+            </summary>
+            <param name="item">Instance of Control</param>
+            <param name="bCheck">Sets the state of <paramref name="item"/> to checked or un-checked</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ICommandExecutor`1.Visible(`0,System.Boolean)">
+            <summary>
+            Sets the visible state of control <typeparamref name="T"/>
+            </summary>
+            <param name="item">Instance of Control</param>
+            <param name="bVisible">Set the stated of <paramref name="item"/> to visible or invisible</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.LabelCommandExecutor">
+            <summary>
+            Label Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.LabelCommandExecutor.OnInstanceAdded(System.Windows.Forms.Label,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks Label.TextChanged Event
+            </summary>
+            <param name="item">A Label</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.LabelCommandExecutor.Check(System.Windows.Forms.Label,System.Boolean)">
+            <summary>
+            Sets the checked state of the Label
+            </summary>
+            <param name="item">A Label</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+            <remarks>This method does not Apply to Label so no action is take on this method.</remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.LabelCommandExecutor.Enable(System.Windows.Forms.Label,System.Boolean)">
+            <summary>
+            Sets the enabled state of the Label
+            </summary>
+            <param name="item">A Label</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.LabelCommandExecutor.Visible(System.Windows.Forms.Label,System.Boolean)">
+            <summary>
+            Sets the Visible state of the Label
+            </summary>
+            <param name="item">A Label</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ListViewCommandExecutor">
+            <summary>
+            ListView Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ListViewCommandExecutor.OnInstanceAdded(System.Windows.Forms.ListView,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks ListView.DoubleClick Event
+            </summary>
+            <param name="item">A ListView</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ListViewCommandExecutor.Enable(System.Windows.Forms.ListView,System.Boolean)">
+            <summary>
+            Sets the enabled state of the ListView
+            </summary>
+            <param name="item">A ListView</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+            <remarks>
+            This method id ignore for ListView and takes no action.
+            </remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ListViewCommandExecutor.Check(System.Windows.Forms.ListView,System.Boolean)">
+            <summary>
+            Sets the checked state of the ListView
+            </summary>
+            <param name="ListView">A ListView</param>
+            <param name="bCheck">If true then the <paramref name="ListView"/> will be Checked; Otherwise unchecked.</param>
+            <remarks>This method does not Apply to ListView so not action is take on this method.</remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ListViewCommandExecutor.Visible(System.Windows.Forms.ListView,System.Boolean)">
+            <summary>
+            Sets the Visible state of the ListView
+            </summary>
+            <param name="item">A ListView</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.MenuCommandExecutor">
+            <summary>
+            Menu Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.MenuCommandExecutor.OnInstanceAdded(System.Windows.Forms.MenuItem,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks MenuItem.Click Event
+            </summary>
+            <param name="item">A MenuItem</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.MenuCommandExecutor.Enable(System.Windows.Forms.MenuItem,System.Boolean)">
+            <summary>
+            Sets the enabled state of the MenuItem
+            </summary>
+            <param name="item">A MenuItem</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.MenuCommandExecutor.Check(System.Windows.Forms.MenuItem,System.Boolean)">
+            <summary>
+            Sets the checked state of the MenuItem
+            </summary>
+            <param name="item">A MenuItem</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.MenuCommandExecutor.Visible(System.Windows.Forms.MenuItem,System.Boolean)">
+            <summary>
+            Sets the Visible state of the MenuItem
+            </summary>
+            <param name="item">A MenuItem</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.NumericUpDownCommandExecutor">
+            <summary>
+            Numeric Up Down Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.NumericUpDownCommandExecutor.OnInstanceAdded(System.Windows.Forms.NumericUpDown,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks NumericUpDown.ValueChanged Event
+            </summary>
+            <param name="item">A NumericUpDown</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.NumericUpDownCommandExecutor.Check(System.Windows.Forms.NumericUpDown,System.Boolean)">
+            <summary>
+            Sets the checked state of the NumericUpDown
+            </summary>
+            <param name="item">A NumericUpDown</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+            <remarks>This method does not Apply to NumericUpDown so no action is take on this method.</remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.NumericUpDownCommandExecutor.Enable(System.Windows.Forms.NumericUpDown,System.Boolean)">
+            <summary>
+            Sets the enabled state of the NumericUpDown
+            </summary>
+            <param name="item">A NumericUpDown</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.NumericUpDownCommandExecutor.Visible(System.Windows.Forms.NumericUpDown,System.Boolean)">
+            <summary>
+            Sets the Visible state of the NumericUpDown
+            </summary>
+            <param name="item">A NumericUpDown</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.TextBoxCommandExecutor">
+            <summary>
+            Text Box Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.TextBoxCommandExecutor.OnInstanceAdded(System.Windows.Forms.TextBox,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks TextBox.TextChanged Event
+            </summary>
+            <param name="item">A TextBox</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.TextBoxCommandExecutor.Check(System.Windows.Forms.TextBox,System.Boolean)">
+            <summary>
+            Sets the checked state of the TextBox
+            </summary>
+            <param name="item">A TextBox</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+            <remarks>This method does not Apply to TextBox so no action is take on this method.</remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.TextBoxCommandExecutor.Enable(System.Windows.Forms.TextBox,System.Boolean)">
+            <summary>
+            Sets the enabled state of the TextBox
+            </summary>
+            <param name="item">A TextBox</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.TextBoxCommandExecutor.Visible(System.Windows.Forms.TextBox,System.Boolean)">
+            <summary>
+            Sets the Visible state of the TextBox
+            </summary>
+            <param name="item">A TextBox</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolbarCommandExecutor">
+            <summary>
+            Toolbar Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolbarCommandExecutor.OnInstanceAdded(System.Windows.Forms.ToolBarButton,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks ToolBarButton.Click Event
+            </summary>
+            <param name="item">A ToolBarButton</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolbarCommandExecutor.Check(System.Windows.Forms.ToolBarButton,System.Boolean)">
+            <summary>
+            Sets the checked state of the ToolBarButton
+            </summary>
+            <param name="item">A ToolBarButton</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolbarCommandExecutor.Enable(System.Windows.Forms.ToolBarButton,System.Boolean)">
+            <summary>
+            Sets the enabled state of the ToolBarButton
+            </summary>
+            <param name="item">A ToolBarButton</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolbarCommandExecutor.Visible(System.Windows.Forms.ToolBarButton,System.Boolean)">
+            <summary>
+            Sets the Visible state of the ToolBarButton
+            </summary>
+            <param name="item">A ToolBarButton</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripButtonCommandExecutor">
+            <summary>
+            Tool Strip Button Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripButtonCommandExecutor.OnInstanceAdded(System.Windows.Forms.ToolStripButton,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks ToolStripButton.Click Event
+            </summary>
+            <param name="item">A ToolStripButton</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripButtonCommandExecutor.Check(System.Windows.Forms.ToolStripButton,System.Boolean)">
+            <summary>
+            Sets the checked state of the ToolStripButton
+            </summary>
+            <param name="item">A ToolStripButton</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripButtonCommandExecutor.Enable(System.Windows.Forms.ToolStripButton,System.Boolean)">
+            <summary>
+            Sets the enabled state of the ToolStripButton
+            </summary>
+            <param name="item">A ToolStripButton</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripButtonCommandExecutor.Visible(System.Windows.Forms.ToolStripButton,System.Boolean)">
+            <summary>
+            Sets the Visible state of the ToolStripButton
+            </summary>
+            <param name="item">A ToolStripButton</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripDropDownItemCommandExecutor">
+            <summary>
+            Tool Strip Drop down Item Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripDropDownItemCommandExecutor.OnInstanceAdded(System.Windows.Forms.ToolStripDropDownItem,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks ToolStripDropDownItem.Click Event
+            </summary>
+            <param name="item">A ToolStripDropDownItem</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripDropDownItemCommandExecutor.Check(System.Windows.Forms.ToolStripDropDownItem,System.Boolean)">
+            <summary>
+            Sets the checked state of the ToolStripDropDownItem
+            </summary>
+            <param name="item">A ToolStripDropDownItem</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+            <remarks>This method does not Apply to ToolStripDropDownItem so no action is take on this method.</remarks>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripDropDownItemCommandExecutor.Enable(System.Windows.Forms.ToolStripDropDownItem,System.Boolean)">
+            <summary>
+            Sets the enabled state of the ToolStripDropDownItem
+            </summary>
+            <param name="item">A ToolStripDropDownItem</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripDropDownItemCommandExecutor.Visible(System.Windows.Forms.ToolStripDropDownItem,System.Boolean)">
+            <summary>
+            Sets the Visible state of the ToolStripDropDownItem
+            </summary>
+            <param name="item">A ToolStripDropDownItem</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripMenuItemCommandExecutor">
+            <summary>
+            Tool Strip menu Item Command Executor
+            </summary>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripMenuItemCommandExecutor.OnInstanceAdded(System.Windows.Forms.ToolStripMenuItem,BigByteTechnologies.Library.Windows.CommandManagement.Command)">
+            <summary>
+            Overrides <see cref="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.CommandExecutor`1.OnInstanceAdded(`0,BigByteTechnologies.Library.Windows.CommandManagement.Command)"/> and hooks ToolStripMenuItem.Click Event
+            </summary>
+            <param name="item">A ToolStripMenuItem</param>
+            <param name="cmd">The <see cref="T:BigByteTechnologies.Library.Windows.CommandManagement.Command"/> associated with the <paramref name="item"/></param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripMenuItemCommandExecutor.Check(System.Windows.Forms.ToolStripMenuItem,System.Boolean)">
+            <summary>
+            Sets the checked state of the ToolStripMenuItem
+            </summary>
+            <param name="item">A ToolStripMenuItem</param>
+            <param name="bCheck">If true then the <paramref name="item"/> will be Checked; Otherwise unchecked.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripMenuItemCommandExecutor.Enable(System.Windows.Forms.ToolStripMenuItem,System.Boolean)">
+            <summary>
+            Sets the enabled state of the ToolStripMenuItem
+            </summary>
+            <param name="item">A ToolStripMenuItem</param>
+            <param name="bEnable">If true then the <paramref name="item"/> will be Enabled; Otherwise Disabled.</param>
+        </member>
+        <member name="M:BigByteTechnologies.Library.Windows.CommandManagement.Executors.ToolStripMenuItemCommandExecutor.Visible(System.Windows.Forms.ToolStripMenuItem,System.Boolean)">
+            <summary>
+            Sets the Visible state of the ToolStripMenuItem
+            </summary>
+            <param name="item">A ToolStripMenuItem</param>
+            <param name="bVisible">If true then the <paramref name="item"/> will be Visible; Otherwise Invisible.</param>
+        </member>
+        <member name="T:BigByteTechnologies.Library.Windows.CommandManagement.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:BigByteTechnologies.Library.Windows.CommandManagement.Properties.Resources.Errror_UanbleToAddCommand">
+            <summary>
+              Looks up a localized string similar to Unable to add instance. No Command Executor could be Located for: {0}.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -6,3 +6,7 @@ Command Manager is comprised of two major two WinForms components:
 >ApplicationIdle - A WinForms component that determines whether an application has received any defined ActivityMessages for a specified TimeSpan. ApplicationIdle is based upon code from Article [Application Idle](https://www.codeproject.com/Articles/30345/Application-Idle) on [CodeProject](https://www.codeproject.com/).
 
 Online Help for Command Manager can be found [here](https://amourspirit.github.io/Command-Manager/).
+
+##NuGet Install
+To install CommandManager, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)  
+Install-Package CommandManager

@@ -1,0 +1,82 @@
+﻿<html>
+	
+<head>
+	<title>Adding Command Manager to Project</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "index.html?" + sTopicUrl
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("AddingCommandManagertoProject");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Adding Command Manager to Project</h1>
+				
+				</div>
+			<div id="topic_header_nav">
+				<a href="Step7ComponentsAddedtoToolbar.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="CommandTextEditorExample.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps4"><span class="rvts0"><span class="rvts11">Adding Command Manager to Project</span></span></h1>
+<p class="rvps2"><span class="rvts6">See: </span><a class="rvts12" href="AddingComponentstoVSToolbar.html">Adding Components to VS Toolbar</a></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Once Command Manager Components have been added to Visual Studio Toolbar you can simply drag and drop the Any of the Command Manager components from the toolbar onto your projects Windows Form. This will add a reference of </span><span class="rvts6">CommandManager.dll</span><span class="rvts6"> to your project as show in </span><span class="rvts20">Figure 1</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">Figure 1.</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/ImgVSCompontAdded.png"></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 2014 - 2017 by Paul Moss. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+

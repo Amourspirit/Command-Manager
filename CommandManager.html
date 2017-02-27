@@ -1,0 +1,84 @@
+﻿<html>
+	
+<head>
+	<title>Command Manager</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "index.html?" + sTopicUrl
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("CommandManager");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Command Manager</h1>
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduction.html">Introduction</a> &rsaquo;&rsaquo; </div>
+				</div>
+			<div id="topic_header_nav">
+				<a href="Introduction.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				<a href="ApplicationIdle.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="GettingStarted.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<h1 class="rvps4"><span class="rvts0"><span class="rvts11">Command Manager</span></span></h1>
+<p class="rvps5"><span class="rvts16">Command Manager</span><span class="rvts6"> - A WinForms component that determines whether an application is idle and updates the User Interface (UI), enabling , disabling and displaying user interface controls as needed using a list of commands. Command Manager</span><span class="rvts6"> use an Update Handler and a Exceution Handler.</span></p>
+<p class="rvps5"><span class="rvts6">When the Application UI changes is is pickupd up by the Update Handler to enable/disable/ hide/show/ check/uncheck the controls being managed. The Execution handler for one or more controls allows one single method to be executed by many different controls without the use of control event handlers ( such as onclick ). See </span><a class="rvts12" href="SampleCode.html">Sample Code</a><span class="rvts6"> for a basic example</span></p>
+<p class="rvps5"><span class="rvts16">Command Manager</span><span class="rvts6"> inherits from </span><a class="rvts12" href="ApplicationIdle.html">Application Idle</a><span class="rvts6"> and threfore does not rely on Windows Forms Idle evernt.</span></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 2014 - 2017 by Paul Moss. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+

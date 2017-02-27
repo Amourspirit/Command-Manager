@@ -91,38 +91,50 @@ span.rvts16
 {
  font-weight: bold;
 }
-a.rvts17, span.rvts17
+span.rvts17
+{
+ font-size: 13pt;
+ font-style: italic;
+ color: #ffffff;
+}
+span.rvts18
+{
+ font-size: 13pt;
+ font-weight: bold;
+ color: #339966;
+}
+a.rvts19, span.rvts19
 {
  color: #0000ff;
  text-decoration: underline;
 }
-span.rvts18
-{
-}
-span.rvts19
-{
- font-weight: bold;
-}
 span.rvts20
 {
- font-style: italic;
 }
 span.rvts21
 {
- color: #000000;
+ font-weight: bold;
 }
 span.rvts22
+{
+ font-style: italic;
+}
+span.rvts23
+{
+ color: #000000;
+}
+span.rvts24
 {
  font-family: 'consolas';
  color: #000000;
 }
-span.rvts23
+span.rvts25
 {
  font-size: 13pt;
  font-weight: bold;
- color: #003300;
+ color: #339966;
 }
-a.rvts24, span.rvts24
+a.rvts26, span.rvts26
 {
  font-size: 18pt;
  font-weight: bold;
@@ -130,14 +142,14 @@ a.rvts24, span.rvts24
  text-decoration: none;
  border-bottom: double;
 }
-a.rvts25, span.rvts25
+a.rvts27, span.rvts27
 {
  font-size: 18pt;
  font-weight: bold;
  color: #0000ff;
  text-decoration: underline;
 }
-span.rvts26
+span.rvts28
 {
  font-size: 18pt;
  font-weight: bold;
@@ -189,13 +201,30 @@ p,ul,ol /* Paragraph Style */
 }
 .rvps7
 {
- margin: 0px 0px 2px 0px;
+ border-color: #808080;
+ border-style: solid;
+ border-width: 1px;
+ background: #000000;
+ padding: 4px 4px 4px 4px;
+ margin: 3px 19px 3px 19px;
 }
 .rvps8
 {
- margin: 10px 0px 10px 0px;
+ text-align: left;
+ text-indent: 0px;
+ page-break-after: avoid;
+ padding: 0px 0px 0px 0px;
+ margin: 16px 0px 4px 0px;
 }
 .rvps9
+{
+ margin: 0px 0px 2px 0px;
+}
+.rvps10
+{
+ margin: 10px 0px 10px 0px;
+}
+.rvps11
 {
  text-align: left;
  text-indent: 0px;
@@ -208,7 +237,7 @@ p,ul,ol /* Paragraph Style */
  padding: 0px 0px 0px 0px;
  margin: 18px 0px 18px 0px;
 }
-.rvps10
+.rvps12
 {
  border-color: #c8c8c8;
  border-style: solid;
